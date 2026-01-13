@@ -1,4 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Gallery - Tour Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/gallery.css" rel="stylesheet">
+   <link rel="stylesheet" href="{{ asset('css/app1.css') }}">
+  <script src="{{ asset('js/app.js') }}" defer></script>
+
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+  <header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">CourtNest</div>
+
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">About Us</a>
+
+        <a href="{{ route('dashboard') }}">Profile</a>
+        <a href="{{ route('login') }}">Log in</a>
+
+      </nav>
+
+      <div class="nav-actions">
+        <a href="{{ route('register') }}" class="btn btn-signup">Sign up</a>
+      </div>
+    </div>
+  </div>
+</header>
+
 <x-app-layout>
+
+    
     <div class="min-h-screen !bg-[#F3F4F6] py-12 font-sans selection:bg-[#22C55E] selection:text-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -6,6 +64,7 @@
                 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-[#22C55E] rounded-full blur-3xl opacity-10"></div>
                 
                 <div class="relative flex items-center z-10">
+                    
                     <div class="relative">
                         <div class="absolute inset-0 bg-[#22C55E] rounded-2xl blur-lg opacity-20 animate-pulse"></div>
                         <div class="relative w-24 h-24 bg-gradient-to-br from-[#2A2D31] to-[#020d04] rounded-2xl flex items-center justify-center shadow-inner border border-[#22C55E]/30">
@@ -15,6 +74,8 @@
                         </div>
                     </div>
                     
+
+
                     <div class="ml-8 text-white">
                         <h2 >Welcome, {{ auth()->user()->name ?? 'Guest' }}</h2>
                         <div class="flex flex-col sm:flex-row sm:gap-6 mt-2 text-gray-400 font-bold uppercase text-[10px] tracking-widest">
@@ -98,4 +159,5 @@
             </div>
         </div>
     </div>
+ 
 </x-app-layout>

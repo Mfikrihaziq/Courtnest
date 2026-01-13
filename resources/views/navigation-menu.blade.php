@@ -6,21 +6,30 @@
                     <a href="{{ route('dashboard') }}" class="text-2xl font-black  tracking-tighter text-white">
                         COURTNEST
                     </a>
+                    
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-xs uppercase font-black tracking-widest hover:text-green-500 transition active:text-white active:border-green-500">
-                        {{ __('Profile') }}
+                        {{ __('Profileeeee') }}
                     </x-nav-link>
                     
                     <x-nav-link href="{{ route('bookings.create') }}" :active="request()->routeIs('bookings.create')" class="text-xs uppercase font-black tracking-widest hover:text-green-500 transition active:text-white active:border-green-500">
                         {{ __('') }}
                     </x-nav-link>
+
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-xs uppercase font-black tracking-widest hover:text-green-500 transition active:text-white active:border-green-500">
+                        {{ __('see') }}
+                    </x-nav-link>
+
+                    
                 </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <div class="ml-3 relative">
+
+
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button class="flex items-center text-sm font-bold text-gray-400 hover:text-white transition">
@@ -45,6 +54,8 @@
                             </form>
                         </x-slot>
                     </x-dropdown>
+
+
                 </div>
             </div>
         </div>

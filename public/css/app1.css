@@ -20,7 +20,12 @@ body{
   margin:0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--white);
-  background: var(--green-900);
+  background-image: url("assets/img/bola.jpg");
+  background:
+    
+    url("assets/img/bola.jpg");
+    background-image: url("assets/img/bola.jpg");
+
 }
 
 
@@ -151,6 +156,7 @@ button{ font-family:inherit; }
 /* ========== Hero ========== */
 .hero{
   padding-top: 16px;
+  background-image: url("assets/img/gallery/gallery-5.webp");
 }
 
 .hero-card{
@@ -165,8 +171,9 @@ button{ font-family:inherit; }
   position: relative;
   min-height: clamp(740px, 55vh, 460px);
   background:
-    linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.70)),
-    url("/images/court.jpg") center/cover no-repeat;
+    
+    url("assets/img/gallery/gallery-5.webp");
+    background-image: url("assets/img/gallery/gallery-5.webp");
 }
 
 

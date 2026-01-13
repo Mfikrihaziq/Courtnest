@@ -391,6 +391,37 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <footer class="footer">
+        <div class="container">
+          <h3>CONTACT US</h3>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="ci-icon">📍</div>
+              <div class="label">ADDRESS</div>
+              <div class="value">53100, Kuala Lumpur</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ci-icon">✉️</div>
+              <div class="label">EMAIL</div>
+              <div class="value">info@company.com</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ci-icon">📞</div>
+              <div class="label">PHONE</div>
+              <div class="value">+60 12 345 5677</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ci-icon">🕒</div>
+              <div class="label">WORKING HOURS</div>
+              <div class="value">Everyday 4 AM - 11 PM</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

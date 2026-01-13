@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AceTime | Home</title>
-  <link rel="stylesheet" href="{{ asset('css/app1.css') }}">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Gallery - Tour Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+
+  <!-- Main CSS File -->
+
+   <link rel="stylesheet" href="{{ asset('css/app1.css') }}">
   <script src="{{ asset('js/app.js') }}" defer></script>
 
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="app-frame">
+   @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-   <header class="nav">
+  <header class="nav">
   <div class="container nav-inner">
-    <div class="text-2xl font-black tracking-tighter text-white">CourtNest</div>
+    <div class="brand">CourtNest</div>
 
     <div class="nav-right">
       <nav class="nav-links">
-       <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
-      <a href="{{ route('gallery') }}">About Us</a>
-      <a href="{{ route('dashboard') }}">Profile</a>
-      <a href="{{ route('login') }}">Log in</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('gallery') }}" class="{{ request()->routeIs('gallery') ? 'active' : '' }}">About Us</a>
+
+        <a href="{{ route('dashboard') }}">Profile</a>
+        <a href="{{ route('login') }}">Log in</a>
 
       </nav>
 
@@ -30,12 +45,13 @@
         <a href="{{ route('register') }}" class="btn btn-signup">Sign up</a>
       </div>
     </div>
-  
+  </div>
 </header>
 
 
     <main>
-      <section class="hero">
+      <section class="hero" >
+        
   <div class="hero-media">
     <div class="hero-content">
       <h1 class="hero-title">
