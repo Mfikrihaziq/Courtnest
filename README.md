@@ -61,9 +61,9 @@ Core Tables:
 https://docs.google.com/document/d/16-uW4O-DeQiS-n9_XM6DA1icBKwdFxWnnab2_wYYuw8/edit?usp=sharing
 
 Relationship :
--User can have multiple booking.
--Court can have multiple booking.
--Each booking is associated with one user and one court.
+- User can have multiple booking.
+- Court can have multiple booking.
+- Each booking is associated with one user and one court.
 
 **Laravel Components Implementation**
 
@@ -259,6 +259,7 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
 
 
