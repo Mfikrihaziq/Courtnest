@@ -65,9 +65,9 @@ Relationship :
 - Court can have multiple booking.
 - Each booking is associated with one user and one court.
 
-**Laravel Components Implementation**
+## **Laravel Components Implementation**
 
-- routes (web.php)
+- **routes (web.php)**
 
     // 1. Dashboard Route
     Route::get('/dashboard', function () {
@@ -92,11 +92,11 @@ Relationship :
     // 6. Cancel Existing Booking
     Route::patch('/bookings/{booking}/cancel', [BookingController::class, 'cancel'])->name('bookings.cancel');
 
-- Controller
+- **Controller**
   
 We are using BookingController : It handles booking process.
 
-- Model and Relationship
+- **Model and Relationship**
   php// Booking Model
   class Booking extends Model {
   public function user() {
@@ -120,7 +120,7 @@ public function bookings() {
     }
 }
 
-- Views and User Interface
+- **Views and User Interface**
 
   *Blade Templates Structure:*
   - Layout/app.blade.php : Main application layout
@@ -129,8 +129,6 @@ public function bookings() {
   - Booking/create.blade.php : Booking placement
   - dashboard.blade.php : Customer dashboard
 
-  *Design Features*
-  - 
 ## User Authentication System
 
 ### **Authentication Features**
@@ -141,7 +139,8 @@ public function bookings() {
 
 ### **Security Measures**
 - Password encryption using Laravel's built-in hashing
-- 
+- Input validation and sanitization
+- Middleware protection for authenticated routes
 
 ## Installation and Setup Instructions
 ### Prerequisites :
@@ -259,6 +258,7 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
 
 
