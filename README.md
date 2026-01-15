@@ -38,12 +38,13 @@ CourtNest is a web-based platform designed to simplify the process of booking sp
 
 **Technology Stack**
 
--
--
--
--
--
--
+- Framework: Laravel
+- Frontend: Blade Template Engine, HTML, CSS, JavaScript
+- Backend: PHP
+- Database: MySQL
+- Authentication: Laravel built-in authentication
+- Version Control: Git & GitHub
+- Development Tools: XAMPP & Visual Studio Code
 
 **Database Design**
 
@@ -144,38 +145,100 @@ public function bookings() {
 
 ## Installation and Setup Instructions
 ### Prerequisites :
--
+- PHP
+- Composer
+- Node.js and NPM
+- MySQL 8.0
+- XAMPP 
 
 ### Step-by-Step Installation
+1. Clone the Repository
 
+   cd CourtNest
+
+2. Install Dependencies
+
+   composer install
+   npm install
+
+3. Environment Configuration
+
+   bashcp .env.example .env
+   php artisan key:generate
+
+4. Database Setup
+
+   bash# Configure database in .env file
+   php artisan migrate
+   php artisan db:seed
+
+5. Start Develoment Server
+
+   php artisan serve
 
 ## Testing and Quality Assurance
 
 ###  Functionality Testing
 
+- User registration and login system
+- Booking and confirmation
+- Booking checkout and payment
+- Booking history tracking and cancellation
+- Responsive design across device
+
 ### Browser Compatibility
+
 - Google Chrome (Latest)
 
 ### Performance Testing
 
 
+
 ## Challenges Faced and Solutions
+## Challenge 1:
+- Problem
+- Solution
+
+
 
 
 ## Future Enhancements
-
+### Phase 2 Features (Potential Improvements)
+- **Real-time Notifications**: Email notifications for booking confirmation
+- **Payment Integration**: Online payment gateway integration like Stripe & PayPal
+- **Rescheduling**: Adding rescheduling feature
+- **Mobile App** : Native mobile application for iOS and Android
 
 ### Scalability Considerations
 
-
+- Database optimization for larger datasets
+- Load balancing for high traffic scenarios
+- 
+  
 ## Learning Outcomes
 ### Technical Skills Gained
+
+- Laravel Framework: Understanding of MVC architecture and Eloquent ORM
+- Database Design: Creating efficient database schemas and relationships
+- Authentication: Implementing secure user authentication systems
+- Frontend Development: Building responsive interfaces with Bootstrap
+- Version Control: Using Git and GitHub for project management
 
 
 ### Soft Skills Developed
 
+- **Team Collaboration**: Managing works effectively as a group
+- **Project Management**: Planning and executing a complex web application
+- **Problem Solving**: Resolving technical error while developing the website
+- **Documentation**: Creating a project document in a professional way
+
 
 ## References
+
+1. Laravel Documentation. (2024). Laravel 10.x Documentation. Retrieved from https://laravel.com/docs/10.x
+2. MySQL Documentation. (2024). MySQL 8.0 Reference Manual. Retrieved from https://dev.mysql.com/doc/refman/8.0/en/
+3. Bootstrap Documentation. (2024). Bootstrap 5.3 Documentation. Retrieved from https://getbootstrap.com/docs/5.3/
+4. 
 
 
 ## Conclusion
@@ -183,10 +246,17 @@ CourtNest successfully provides a centralized and efficient court booking platfo
 
 ### Key Achievements
 
+- Successfully implemented all required Laravel components (Routes, Controllers, Views, Models)
+- Created a functional court booking system
+- Developed a responsive, user-friendly interface
+- Demonstrated understanding of database relationships and CRUD operations
+- Applied security best practices for user authentication
 
 
 ### Project Impact
 
+The implementation of CourtNest improves the traditional court booking process by providing a centralized and automated reservation system. This project also give us a practical experience in building a web application and it enhances our capability to working in a team environment. The skills that provided from finishing this project will be sufficient for us in the future.
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
