@@ -133,7 +133,7 @@ public function bookings() {
   - 
 ## User Authentication System
 
-### ** Authentication Features**
+### **Authentication Features**
 - **Registration System**: Email validation, password confirmation
 - **Login System**: Secure authentication with "Remember Me" option
 - **Password Reset**: Email-based password recovery system
@@ -259,4 +259,5 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
