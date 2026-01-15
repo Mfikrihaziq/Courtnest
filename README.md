@@ -23,7 +23,7 @@ CourtNest is a web-based platform designed to simplify the process of booking sp
 
 ## Target Users
 
-- Customers: Users who want to browse courts, make bookings, and manage reservations.
+- Customers: Users who want to browse courts and make bookings.
 
 ## Features and Functionalities
 
@@ -259,5 +259,6 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
 
