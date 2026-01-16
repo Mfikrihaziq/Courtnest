@@ -1,53 +1,41 @@
-<x-action-section>
-    <x-slot name="title">
-        {{ __('Delete Account') }}
-    </x-slot>
+<div class="w-full flex justify-center">
+    <x-danger-button
+        wire:click="confirmUserDeletion"
+        wire:loading.attr="disabled"
+        class="rounded-xl px-10 py-3 font-extrabold uppercase tracking-widest"
+    >
+        Delete Account
+    </x-danger-button>
 
-    <x-slot name="description">
-        {{ __('Permanently delete your account.') }}
-    </x-slot>
+    <!-- Confirmation Modal -->
+    <x-dialog-modal wire:model="confirmingUserDeletion">
+        <x-slot name="title">
+            <span class="font-extrabold text-[#0b1320]">Delete Account</span>
+        </x-slot>
 
-    <x-slot name="content">
-        <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </div>
+        <x-slot name="content">
+            <p class="text-slate-600 font-semibold">
+                This action cannot be undone. Please enter your password to confirm.
+            </p>
 
-        <div class="mt-5">
-            <x-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
-                {{ __('Delete Account') }}
+            <div class="mt-4">
+                <x-input type="password"
+                    class="mt-1 block w-3/4 rounded-2xl border-black/10 focus:border-red-500 focus:ring-red-500"
+                    placeholder="Password"
+                    wire:model.defer="password"
+                    wire:keydown.enter="deleteUser" />
+                <x-input-error for="password" class="mt-2" />
+            </div>
+        </x-slot>
+
+        <x-slot name="footer">
+            <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                Cancel
+            </x-secondary-button>
+
+            <x-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                Delete
             </x-danger-button>
-        </div>
-
-        <!-- Delete User Confirmation Modal -->
-        <x-dialog-modal wire:model.live="confirmingUserDeletion">
-            <x-slot name="title">
-                {{ __('Delete Account') }}
-            </x-slot>
-
-            <x-slot name="content">
-                {{ __('Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
-
-                <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-input type="password" class="mt-1 block w-3/4"
-                                autocomplete="current-password"
-                                placeholder="{{ __('Password') }}"
-                                x-ref="password"
-                                wire:model="password"
-                                wire:keydown.enter="deleteUser" />
-
-                    <x-input-error for="password" class="mt-2" />
-                </div>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-secondary-button wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
-                    {{ __('Cancel') }}
-                </x-secondary-button>
-
-                <x-danger-button class="ms-3" wire:click="deleteUser" wire:loading.attr="disabled">
-                    {{ __('Delete Account') }}
-                </x-danger-button>
-            </x-slot>
-        </x-dialog-modal>
-    </x-slot>
-</x-action-section>
+        </x-slot>
+    </x-dialog-modal>
+</div>

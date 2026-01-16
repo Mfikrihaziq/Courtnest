@@ -1,34 +1,98 @@
-<x-form-section submit="updatePassword">
-    <x-slot name="title">
-        <span class="text-white font-black uppercase text-sm tracking-widest">{{ __('Update Password') }}</span>
-    </x-slot>
+<div class="w-full">
+    <form wire:submit.prevent="updatePassword" class="w-full space-y-6">
 
-    <x-slot name="description">
-        <span class="text-gray-500 text-xs">{{ __('Ensure your account is using a long, random password to stay secure.') }}</span>
-    </x-slot>
-
-    <x-slot name="form">
-        <div class="col-span-6 sm:col-span-4 space-y-4">
-            <div>
-                <x-label for="current_password" value="{{ __('Current Password') }}" class="text-gray-400 font-bold uppercase text-[10px]" />
-                <x-input id="current_password" type="password" class="mt-1 block w-full bg-black border-green-900/30 text-white rounded-xl focus:border-green-500" wire:model.defer="state.current_password" autocomplete="current-password" />
-            </div>
-
-            <div>
-                <x-label for="password" value="{{ __('New Password') }}" class="text-gray-400 font-bold uppercase text-[10px]" />
-                <x-input id="password" type="password" class="mt-1 block w-full bg-black border-green-900/30 text-white rounded-xl focus:border-green-500" wire:model.defer="state.password" autocomplete="new-password" />
-            </div>
-
-            <div>
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" class="text-gray-400 font-bold uppercase text-[10px]" />
-                <x-input id="password_confirmation" type="password" class="mt-1 block w-full bg-black border-green-900/30 text-white rounded-xl focus:border-green-500" wire:model.defer="state.password_confirmation" autocomplete="new-password" />
-            </div>
+        {{-- Current Password --}}
+        <div>
+            <x-label for="current_password" value="Current Password" />
+            <x-input
+                id="current_password"
+                type="password"
+                class="mt-1 block w-full text-slate-900" 
+                wire:model="state.current_password"
+                autocomplete="current-password"
+            />
+            <x-input-error for="state.current_password" class="mt-2" />
         </div>
-    </x-slot>
 
-    <x-slot name="actions">
-        <button class="bg-green-500 hover:bg-green-400 text-black font-black px-8 py-2 rounded-xl transition uppercase tracking-widest text-xs">
-            {{ __('Update Password') }}
-        </button>
-    </x-slot>
-</x-form-section>
+        {{-- New Password --}}
+        <div>
+            <x-label for="password" value="New Password" />
+            <x-input
+                id="password"
+                type="password"
+                class="mt-1 block w-full text-slate-900"
+                wire:model="state.password"
+                autocomplete="new-password"
+            />
+            <x-input-error for="state.password" class="mt-2" />
+        </div>
+
+        {{-- Confirm Password --}}
+        <div>
+            <x-label for="password_confirmation" value="Confirm Password" />
+            <x-input
+                id="password_confirmation"
+                type="password"
+                class="mt-1 block w-full text-slate-900"
+                wire:model="state.password_confirmation"
+                autocomplete="new-password"
+            />
+            <x-input-error for="state.password_confirmation" class="mt-2" />
+        </div>
+
+        {{-- Actions --}}
+<div 
+    x-data="{ showSuccess: false }"
+    x-on:saved.window="
+        showSuccess = true;
+        setTimeout(() => showSuccess = false, 1500);
+        setTimeout(() => window.location.reload(), 1600);
+    "
+    class="flex items-center justify-end pt-6 gap-4"
+>
+    <x-button
+        wire:loading.attr="disabled"
+        class="bg-[#0b1320] hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-semibold transition"
+
+    >
+        Update
+    </x-button>
+
+    {{-- ✅ SUCCESS POPUP --}}
+    <div
+        x-show="showSuccess"
+        x-transition.opacity
+        x-cloak
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+    >
+        <div
+            x-transition.scale
+            class="bg-white rounded-[32px] px-10 py-8
+                   shadow-[0_30px_80px_rgba(15,23,42,0.25)]
+                   flex flex-col items-center gap-6 w-full max-w-sm"
+        >
+            {{-- Icon --}}
+            <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center shadow-inner">
+                <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                          d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+
+            {{-- Title --}}
+            <h3 class="text-xl font-black tracking-tight text-slate-900">
+                Password Updated
+            </h3>
+
+            {{-- Description --}}
+            <p class="text-base text-slate-600 text-center leading-relaxed">
+                Your password has been updated successfully.<br>
+            </p>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+    </form>
+</div>

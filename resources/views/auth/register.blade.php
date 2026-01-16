@@ -1,66 +1,177 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-[#F3F4F6] flex flex-col justify-center items-center font-sans py-16 selection:bg-green-500">
-        
-        <div class="mb-10 text-center">
-            <h1 class="text-6xl font-black text-[#020d04] italic uppercase tracking-tighter">COURT<span class="text-[#22C55E]">NEST</span></h1>
-        </div>
+  <div class="min-h-screen bg-[#F3F4F6] font-sans">
+    <div class="min-h-screen flex">
 
-        <div class="w-full max-w-xl bg-[#1A1C1E] border-[3px] border-[#22C55E] p-12 rounded-[3.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] relative overflow-hidden">
-            
-            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-[#22C55E] rounded-full blur-[90px] opacity-20"></div>
+      <!-- LEFT: SIGN UP FORM (SaaS clean layout) -->
+      <div class="w-full lg:w-1/2 flex items-center justify-center px-6 py-16 bg-[#F3F4F6]">
+        <div class="w-full max-w-lg">
 
-            <div class="mb-10 relative z-10">
-                <h2 class="text-3xl font-black text-white uppercase tracking-tight">Create Account</h2>
-                <div class="h-1 w-12 bg-[#22C55E] mt-2"></div> </div>
+          <!-- Heading -->
+          <div class="mb-10 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0b1320]">
+              Create account
+            </h1>
+            <p class="mt-2 text-lg text-slate-600 font-medium">
+              Fill in your details to get started.
+            </p>
+          </div>
 
-            <x-validation-errors class="mb-6" />
+          <x-validation-errors class="mb-6" />
 
-            <form method="POST" action="{{ route('register') }}" class="space-y-6 relative z-10">
-                @csrf
-                
-                <div class="group">
-                    <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Name</label>
-                    <input type="text" name="name" :value="old('name')" required autofocus placeholder="Enter full name" 
-                        class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition-all placeholder:text-gray-600 shadow-inner">
-                </div>
+          <form method="POST" action="{{ route('register') }}" class="space-y-6">
+            @csrf
 
-                <div class="group">
-                    <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Phone Number</label>
-                    <input type="text" name="phone_number" :value="old('phone_number')" required placeholder="012-3456789" 
-                        class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition-all placeholder:text-gray-600 shadow-inner">
-                </div>
-
-                <div class="group">
-                    <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Email Address</label>
-                    <input type="email" name="email" :value="old('email')" required placeholder="your@email.com" 
-                        class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition-all placeholder:text-gray-600 shadow-inner">
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Password</label>
-                        <input type="password" name="password" required placeholder="••••••••" 
-                            class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Confirm Password</label>
-                        <input type="password" name="password_confirmation" required placeholder="••••••••" 
-                            class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition-all">
-                    </div>
-                </div>
-
-                <div class="pt-6">
-                    <button type="submit" class="w-full bg-[#22C55E] hover:bg-[#16a34a] text-[#020d04] font-black py-5 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-[0_15px_30px_rgba(34,197,94,0.3)] uppercase tracking-[0.2em] text-sm">
-                        Register
-                    </button>
-                </div>
-            </form>
-
-            <div class="text-center mt-10">
-                <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em]">
-                    Already a member? <a href="{{ route('login') }}" class="text-white hover:text-[#22C55E] transition border-b border-white/20 ml-2">Sign In</a>
-                </p>
+            <!-- Name -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                value="{{ old('name') }}"
+                required
+                autofocus
+                placeholder="Enter full name"
+                class="w-full rounded-2xl border border-slate-300 bg-white px-5 py-4 text-slate-900
+                       placeholder:text-slate-400 shadow-sm
+                       focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-400"
+              >
             </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Phone number
+              </label>
+              <input
+                type="text"
+                name="phone_number"
+                value="{{ old('phone_number') }}"
+                required
+                placeholder="012-3456789"
+                class="w-full rounded-2xl border border-slate-300 bg-white px-5 py-4 text-slate-900
+                       placeholder:text-slate-400 shadow-sm
+                       focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-400"
+              >
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label class="block text-sm font-semibold text-slate-700 mb-2">
+                Email address
+              </label>
+              <input
+                type="email"
+                name="email"
+                value="{{ old('email') }}"
+                required
+                placeholder="your@email.com"
+                class="w-full rounded-2xl border border-slate-300 bg-white px-5 py-4 text-slate-900
+                       placeholder:text-slate-400 shadow-sm
+                       focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-400"
+              >
+            </div>
+
+            <!-- Password + Confirm Password -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  placeholder="••••••••"
+                  class="w-full rounded-2xl border border-slate-300 bg-white px-5 py-4 text-slate-900
+                         placeholder:text-slate-400 shadow-sm
+                         focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-400"
+                >
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-slate-700 mb-2">
+                  Confirm password
+                </label>
+                <input
+                  type="password"
+                  name="password_confirmation"
+                  required
+                  placeholder="••••••••"
+                  class="w-full rounded-2xl border border-slate-300 bg-white px-5 py-4 text-slate-900
+                         placeholder:text-slate-400 shadow-sm
+                         focus:outline-none focus:ring-4 focus:ring-green-200 focus:border-green-400"
+                >
+              </div>
+            </div>
+
+            <!-- Button -->
+            <button
+              type="submit"
+              class="w-full mt-2 rounded-full bg-[#0b1a3a] px-6 py-4 text-white font-semibold
+                     shadow-lg shadow-slate-400/30
+                     hover:bg-[#081432] transition"
+            >
+              Register
+            </button>
+
+            <!-- Already a member -->
+            <p class="text-center text-sm text-slate-600 pt-2">
+              Already a member?
+              <a href="{{ route('login') }}" class="font-semibold text-[#0b1a3a] underline underline-offset-4 hover:opacity-80">
+                Sign In
+              </a>
+            </p>
+
+          </form>
         </div>
+      </div>
+
+    <!-- RIGHT: ILLUSTRATION (match LOGIN UI) -->
+<div class="hidden lg:flex w-1/2 relative overflow-hidden
+     bg-gradient-to-br from-[#DDE9F8] via-[#C9DCF4] to-[#B7D0EE]">
+
+  <!-- soft background glows -->
+  <div class="absolute -top-32 -right-32 w-96 h-96
+              bg-blue-500/25 rounded-full blur-[140px]"></div>
+
+  <div class="absolute -bottom-32 -left-32 w-96 h-96
+              bg-green-500/20 rounded-full blur-[140px]"></div>
+
+  <div class="relative z-10 w-full flex flex-col items-center justify-center
+              px-12 py-10 text-[#0b1c2d]">
+
+    <!-- Brand -->
+    <div class="mb-3 text-center">
+      <h2 class="text-5xl font-black italic uppercase tracking-tighter">
+        <span class="text-[#0b1320]">Court</span><span class="text-[#22C55E]">Nest</span>
+      </h2>
     </div>
+
+    <!-- Tagline (signup version text, but same styling) -->
+    <p class="text-slate-700 text-base mb-2 text-center max-w-md">
+      Create your account and start booking courts in minutes.
+    </p>
+
+    <!-- Illustration -->
+    <img
+      src="{{ asset('assets/img/courtlogin.png') }}"
+      alt="CourtNest Illustration"
+      class="w-[72%] max-w-[480px]
+             drop-shadow-[0_28px_55px_rgba(0,0,0,0.28)]
+             select-none mb-2"
+    />
+
+    <!-- Footer text -->
+    <p class="text-slate-800 text-sm tracking-wide font-semibold">
+      Fast booking • Secure payment • Smooth check-in
+    </p>
+
+  </div>
+</div>
+
+
+    </div>
+  </div>
 </x-guest-layout>

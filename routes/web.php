@@ -5,17 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BookingController;
 use App\Models\User;
 
-
-Route::get('/', function () {
-    return view('gallery');
-})->name('home');
-
 Route::get('/', fn () => view('home'))->name('home');
 Route::get('/gallery', fn () => view('gallery'))->name('gallery');
-Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
-Route::get('/login', fn () => view('login'))->name('login');
-
-
 
 Route::middleware([
     'auth:sanctum',

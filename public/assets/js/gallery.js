@@ -95,14 +95,26 @@
    * Animation on scroll function and init
    */
   function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
-  }
-  window.addEventListener('load', aosInit);
+  AOS.init({
+    duration: 600,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false,
+    offset: 120
+  });
+}
+
+/* Init AOS once after page load */
+window.addEventListener('load', () => {
+  aosInit();
+
+  /* IMPORTANT: refresh AOS after layout stabilizes */
+  setTimeout(() => {
+    AOS.refreshHard();
+  }, 400);
+});
+
+
 
   /**
    * Initiate Pure Counter
@@ -126,7 +138,13 @@
     });
   }
 
-  window.addEventListener("load", initSwiper);
+window.addEventListener("load", () => {
+  initSwiper();
+
+  setTimeout(() => {
+    if (window.AOS) AOS.refresh();
+  }, 300);
+});
 
   /**
    * Initiate glightbox
@@ -139,34 +157,40 @@
    * Init isotope layout and filters
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+  let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+  let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+  let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
+  let initIsotope;
+
+  imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+    initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+      itemSelector: '.isotope-item',
+      layoutMode: layout,
+      filter: filter,
+      sortBy: sort
     });
+
+    /* Refresh AOS AFTER isotope layout */
+    if (window.AOS) AOS.refreshHard();
+  });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
+    filters.addEventListener('click', function() {
+      isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+      this.classList.add('filter-active');
 
+      initIsotope.arrange({
+        filter: this.getAttribute('data-filter')
+      });
+
+      /* Refresh AOS after filtering */
+      setTimeout(() => {
+        if (window.AOS) AOS.refresh();
+      }, 200);
+    });
   });
+});
 
   /**
    * Frequently Asked Questions Toggle

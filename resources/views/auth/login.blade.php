@@ -1,49 +1,160 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-[#F3F4F6] flex flex-col justify-center items-center font-sans py-16 selection:bg-green-500">
-        
-        <div class="mb-10 text-center">
-            <h1 class="text-4xl font-black text-[#020d04] italic uppercase tracking-tighter">COURT<span class="text-[#22C55E]">NEST</span></h1>
-        </div>
+  <div class="min-h-screen font-sans selection:bg-green-500 bg-[#F3F4F6]">
+    <div class="min-h-screen flex">
 
-        <div class="w-full max-w-md bg-[#1A1C1E] border-[3px] border-[#22C55E] p-10 rounded-[2.5rem] shadow-[0_40px_100px_rgba(0,0,0,0.2)] relative overflow-hidden">
-            
-            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-32 h-32 bg-[#22C55E] rounded-full blur-[80px] opacity-20"></div>
+      <!-- LEFT: LOGIN FORM (SaaS style / no box) -->
+<div class="w-full lg:w-1/2 flex flex-col justify-center items-center py-16 px-8 bg-[#F3F4F6]">
+  <div class="w-full max-w-lg">
 
-            <div class="text-center mb-10 relative z-10">
-                <h2 class="text-xl font-black text-white uppercase tracking-tight">Sign In</h2>
-                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] mt-2 text-center">Welcome Back</p>
-            </div>
-
-            <x-validation-errors class="mb-4" />
-
-            <form method="POST" action="{{ route('login') }}" class="space-y-6 relative z-10">
-                @csrf
-                <div>
-                    <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Email Address</label>
-                    <input type="email" name="email" :value="old('email')" required autofocus class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition placeholder:text-gray-600 shadow-inner">
-                </div>
-
-                <div>
-                    <label class="block text-gray-400 font-black uppercase text-[10px] mb-2 ml-1 tracking-widest">Password</label>
-                    <input type="password" name="password" required autocomplete="current-password" class="w-full bg-[#2A2D31] border-2 border-transparent text-white rounded-2xl p-4 focus:border-[#22C55E] focus:bg-[#020d04] outline-none transition placeholder:text-gray-600 shadow-inner">
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center">
-                        <x-checkbox name="remember" class="bg-black border-[#22C55E] text-[#22C55E] focus:ring-[#22C55E]" />
-                        <span class="ml-2 text-[10px] text-gray-500 font-black uppercase tracking-widest">{{ __('Remember me') }}</span>
-                    </label>
-                    <a href="{{ route('password.request') }}" class="text-[10px] text-[#22C55E] hover:text-white font-black uppercase tracking-widest transition">Forgot?</a>
-                </div>
-
-                <button type="submit" class="w-full bg-[#22C55E] hover:bg-[#16a34a] text-[#020d04] font-black py-4 rounded-2xl transition shadow-lg shadow-green-500/20 uppercase tracking-[0.2em] text-sm">
-                    Log In
-                </button>
-            </form>
-
-            <p class="text-center text-gray-600 text-[10px] mt-8 font-black uppercase tracking-[0.2em] relative z-10">
-                New to CourtNest? <a href="{{ route('register') }}" class="text-white hover:text-[#22C55E] transition border-b border-white/20 ml-1">Create Account</a>
-            </p>
-        </div>
+    <!-- Title -->
+    <div class="mb-10 text-center">
+      <h2 class="text-5xl font-extrabold tracking-tight text-[#0b1020]">
+        Welcome Back!
+      </h2>
+      <p class="mt-2 text-lg text-slate-600 font-medium">
+        Sign in to continue.
+      </p>
     </div>
+
+    <!-- Validation -->
+    <x-validation-errors class="mb-6" />
+
+    <!-- Form -->
+    <form method="POST" action="{{ route('login') }}" class="space-y-6">
+      @csrf
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-600 mb-2">
+          Email address
+        </label>
+        <input
+          type="email"
+          name="email"
+          value="{{ old('email') }}"
+          required
+          autofocus
+          class="w-full rounded-2xl bg-white border border-slate-300 px-5 py-4 text-[#0b1020]
+                 placeholder:text-slate-400 shadow-sm
+                 focus:outline-none focus:ring-4 focus:ring-[#22C55E]/20 focus:border-[#22C55E]"
+          placeholder="Enter your email"
+        >
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-600 mb-2">
+          Password
+        </label>
+        <input
+          type="password"
+          name="password"
+          required
+          autocomplete="current-password"
+          class="w-full rounded-2xl bg-white border border-slate-300 px-5 py-4 text-[#0b1020]
+                 placeholder:text-slate-400 shadow-sm
+                 focus:outline-none focus:ring-4 focus:ring-[#22C55E]/20 focus:border-[#22C55E]"
+          placeholder="Enter your password"
+        >
+      </div>
+
+      <!-- Remember + Forgot -->
+      <div class="flex items-center justify-between pt-1">
+        <label class="flex items-center gap-2">
+          <x-checkbox
+            name="remember"
+            class="rounded border-slate-400 text-[#22C55E] focus:ring-[#22C55E]"
+          />
+          <span class="text-sm text-slate-600">
+            Remember me
+          </span>
+        </label>
+
+        @if (Route::has('password.request'))
+          <a
+            href="{{ route('password.request') }}"
+            class="text-sm font-semibold text-[#22C55E] hover:text-[#16a34a] transition"
+          >
+            Forgot password?
+          </a>
+        @endif
+      </div>
+
+      <!-- Button -->
+      <button
+        type="submit"
+        class="w-full rounded-full py-4 text-white font-bold text-lg
+               bg-gradient-to-r from-[#0b1a44] via-[#101f55] to-[#0b1a44]
+               hover:brightness-110 transition
+               shadow-[0_18px_40px_rgba(11,26,68,0.25)]"
+      >
+        Log in
+      </button>
+
+      <!-- Create account -->
+      <p class="text-center text-sm text-slate-600 pt-3">
+        Don’t have an account yet?
+        <a
+          href="{{ route('register') }}"
+          class="font-semibold text-[#0b1a44] hover:underline"
+        >
+          Create an account
+        </a>
+      </p>
+
+    </form>
+  </div>
+</div>
+
+
+     <!-- RIGHT: ILLUSTRATION -->
+<div class="hidden lg:flex w-1/2 relative overflow-hidden
+     bg-gradient-to-br from-[#DDE9F8] via-[#C9DCF4] to-[#B7D0EE]">
+
+  <!-- soft background glows -->
+  <div class="absolute -top-32 -right-32 w-96 h-96
+              bg-blue-500/25 rounded-full blur-[140px]"></div>
+
+  <div class="absolute -bottom-32 -left-32 w-96 h-96
+              bg-green-500/20 rounded-full blur-[140px]"></div>
+
+  <div class="relative z-10 w-full flex flex-col items-center justify-center
+              px-12 py-10 text-[#0b1c2d]">
+
+    <!-- Brand -->
+     <div class="mb-3 text-center">
+            <h2 class="text-5xl font-black italic uppercase tracking-tighter">
+              <span class="text-[#0b1320]">Court</span><span class="text-[#22C55E]">Nest</span>
+            </h2>
+          </div>
+
+    <!-- Tagline -->
+    <p class="text-slate-700 text-base mb-2 text-center max-w-md">
+      Book your courts instantly and play without waiting.
+    </p>
+
+    <!-- Illustration -->
+    <img
+      src="{{ asset('assets/img/courtlogin.png') }}"
+      alt="CourtNest Login Illustration"
+      class="w-[72%] max-w-[480px]
+             drop-shadow-[0_28px_55px_rgba(0,0,0,0.28)]
+             select-none mb-2"
+    />
+
+    <!-- Footer text (clear & readable) -->
+    <p class="text-slate-800 text-sm tracking-wide font-semibold">
+      Fast booking • Secure payment • Smooth check-in
+    </p>
+
+  </div>
+</div>
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+  </div>
 </x-guest-layout>
