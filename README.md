@@ -6,9 +6,9 @@
 **Group Name**: Speed
 **Section**: 6
 **Group Members**:
-- MUHAMMAD AMAR MUSTAKIM BIN AHMAD PUAAD -
-- IRFAN HAKEEM BIN KHAIRUDIN -
-- MUHAMMAD FIKRI HAZIQ BIN ZAKI -
+- MUHAMMAD AMAR MUSTAKIM BIN AHMAD PUAAD - 2210965
+- IRFAN HAKEEM BIN KHAIRUDIN - 2318729
+- MUHAMMAD FIKRI HAZIQ BIN ZAKI - 2328631
 - MUHAMAD HAZIM ISKANDAR B HASSAN NORDIN - 2317595
 
 ## Project Overview
@@ -173,6 +173,7 @@ public function bookings() {
 
 5. Start Develoment Server
 
+   npm run dev
    php artisan serve
 
 ## Testing and Quality Assurance
@@ -212,7 +213,6 @@ public function bookings() {
 
 - Database optimization for larger datasets
 - Load balancing for high traffic scenarios
-- 
   
 ## Learning Outcomes
 ### Technical Skills Gained
@@ -237,7 +237,6 @@ public function bookings() {
 1. Laravel Documentation. (2024). Laravel 10.x Documentation. Retrieved from https://laravel.com/docs/10.x
 2. MySQL Documentation. (2024). MySQL 8.0 Reference Manual. Retrieved from https://dev.mysql.com/doc/refman/8.0/en/
 3. Bootstrap Documentation. (2024). Bootstrap 5.3 Documentation. Retrieved from https://getbootstrap.com/docs/5.3/
-4. 
 
 
 ## Conclusion
@@ -258,6 +257,7 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
 
 
