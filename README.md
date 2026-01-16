@@ -197,9 +197,23 @@ public function bookings() {
 
 
 ## Challenges Faced and Solutions
-## Challenge 1:
-- Problem
-- Solution
+**1. Race Condition in Database Records**
+
+Challenge: Bookings were saved to the database immediately upon form submission, creating "junk" records if the user abandoned the checkout page before paying.
+
+Solution: Implemented a Session-based Booking Flow. Data is now temporarily stored in a PHP session and only committed to the database once a "Success" response is received from the payment simulation.
+
+**2. Frontend Build Failures (Vite)**
+
+Challenge: Team members encountered "Could not resolve entry module" errors when running the project locally after a Git pull.
+
+Solution: Identified that the public/build directory was being ignored by Git. We updated the workflow to ensure all members run npm install and npm run build locally to generate the necessary CSS and JS assets specific to their environment.
+
+**3. Database Environment Desynchronization**
+
+Challenge: Collaborators frequently faced "Unknown Database" errors because the local database names did not match the .env configuration.
+
+Solution: Standardized the database naming convention to courtnest_db across the team and provided a pre-configured CourtSeeder to ensure the "Bookings" page was instantly populated with court data after a fresh migration.
 
 
 
@@ -259,6 +273,7 @@ The implementation of CourtNest improves the traditional court booking process b
 
 - Project Completion Date: 16/1/2026
 - Course: INFO 3305 Web Application Development
+
 
 
 
